@@ -1,0 +1,14 @@
+node {
+     stage('scm'){
+	   
+	    git 'https://github.com/bvenkatavinod/spring-petclinic.git'
+	 }
+	 stage('build the package'){
+	 
+	 sh label: '', script: 'mvn package'
+	 }
+	 stage('archival'){
+	 
+	 archive 'target/*.jar'
+	 }
+}
