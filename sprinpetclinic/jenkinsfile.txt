@@ -7,6 +7,11 @@ node {
 	 
 	 sh label: '', script: 'mvn package'
 	 }
+         stage('show test result'){
+         
+         junit 'target/surefire-reports/*.xml'
+
+         }
 	 stage('archival'){
 	 
 	 archive 'target/*.jar'
